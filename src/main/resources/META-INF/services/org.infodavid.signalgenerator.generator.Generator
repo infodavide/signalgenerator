@@ -1,0 +1,5 @@
+org.infodavid.signalgenerator.generator.SawtoothGenerator
+org.infodavid.signalgenerator.generator.SineGenerator
+org.infodavid.signalgenerator.generator.SquareGenerator
+org.infodavid.signalgenerator.generator.TextGenerator
+org.infodavid.signalgenerator.generator.TriangleGenerator
