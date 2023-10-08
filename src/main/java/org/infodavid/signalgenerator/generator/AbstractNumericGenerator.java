@@ -20,7 +20,7 @@ public abstract class AbstractNumericGenerator extends AbstractGenerator {
     private final JSpinner amplitudeField = new JSpinner(new SpinnerNumberModel(1.0, 1.0, 10000.0, 0.5));
 
     /** The offset field. */
-    private final JSpinner offsetField = new JSpinner(new SpinnerNumberModel(0.0, 0.0, 10000.0, 0.5));
+    private final JSpinner offsetField = new JSpinner(new SpinnerNumberModel(0.0, -10000.0, 10000.0, 0.5));
 
     /**
      * Instantiates a new generator.

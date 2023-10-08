@@ -5,7 +5,49 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="comment" type="xs:string" />
+        <xs:element name="line-patterns">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="line-pattern">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="name" type="xs:string" use="required" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="output-files">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="output-file">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="name" type="xs:string" use="required" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="signal">
+          <xs:complexType mixed="true">
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" use="required" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
+      <xs:attribute name="start" type="xs:unsignedLong" use="optional" />
+      <xs:attribute name="end" type="xs:unsignedLong" use="optional" />
+      <xs:attribute name="step" type="xs:unsignedLong" use="optional" />
       <xs:attribute name="title" type="xs:string" />
     </xs:complexType>
   </xs:element>

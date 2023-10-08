@@ -8,7 +8,7 @@ import org.apache.commons.lang3.time.FastDateFormat;
 public class Constants {
 
     /** The Constant DATETIME_FORMAT. */
-    public static final FastDateFormat DATETIME_FORMAT = FastDateFormat.getInstance("YYYY-MM-DD HH:mm:ss.SSS");
+    public static final FastDateFormat DATETIME_FORMAT = FastDateFormat.getInstance("YYYY-MM-dd HH:mm:ss.SSS");
 
     /** The Constant MAXIMUM_STEP. */
     public static final long MAXIMUM_STEP = 86400000;
