@@ -1,0 +1,39 @@
+$headerHeight: 48px;
+$toolbarBorderRadius: 4px;
+$toolbarBackgroundColor: #778899;
+$routerContentMargin: $headerHeight + 5px;
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $headerHeight;
+  background-color: $toolbarBackgroundColor;
+  z-index: 2;
+  border-radius: $toolbarBorderRadius;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.router-content {
+  display: inline-block;
+  margin-top: $routerContentMargin;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: $routerContentMargin;
+  min-height:100vh;
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: $headerHeight;
+  background-color: $toolbarBackgroundColor;
+  color: black;
+  text-align: center;
+  border-radius: $toolbarBorderRadius;
+}

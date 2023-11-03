@@ -16,3 +16,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 /archives/
+/.vscode/
+**/.angular/
+**/node_modules/
