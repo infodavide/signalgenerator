@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="afa389a0-0d95-4aa2-a557-d15fb4f8c858" activeEnvironment="Default" name="Signal generator" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:restMockService id="a3196aeb-0689-41ef-865d-04157989543b" port="8080" path="/" host="milano" name="REST MockService 1"><con:settings/><con:properties/><con:restMockAction name="/api/rest/signal/available" method="GET" resourcePath="/api/rest/signal/available" id="043987fc-1a06-4ddd-865b-b5224e53bc5c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response 1" id="13c3f672-10b4-4ab4-9ba4-910cfbd4a39f" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>[
+{
+	"name": "Sine",
+	"inputs": [
+		{ 
+			"name": "noiseAmplitude",
+			"label": "Noise amplitude",
+			"type": "double",
+			"max": 100,
+			"min": 0,
+			"value": 1.0
+		},
+		{ 
+			"name": "amplitude",
+			"label": "Amplitude",
+			"type": "double",
+			"max": 100,
+			"min": 1,
+			"value": 2.0
+		},
+		{ 
+			"name": "offset",
+			"label": "Offset",
+			"type": "double",
+			"max": 100,
+			"min": 0,
+			"value": 10.0
+		}
+	]
+}
+]
+</con:responseContent></con:response></con:restMockAction><con:restMockAction name="/api/rest/signal" method="POST" resourcePath="/api/rest/signal" id="67455717-533a-4db6-9ee3-3c3871c523c9"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response 1" id="b253ef18-1cbc-4925-ac8f-b849bf463e33" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/></con:response></con:restMockAction><con:restMockAction name="/api/rest/signal/preview" method="POST" resourcePath="/api/rest/signal/preview" id="a9c5c5e0-cd50-455e-93a5-3b52e91a6e4c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath/><con:response name="Response 1" id="02d93cff-9f41-4d1e-9ae5-290db58f156b" httpResponseStatus="200" mediaType="application/octet-stream"><con:settings/><con:script>import org.apache.commons.io.IOUtils
+
+def httpResponse = mockRequest.httpResponse
+def dir = new java.io.File(System.getProperty("user.home") + "/workspace/java/signal-generator/id-signal-generator-angular/src/test/resources");
+log.info "Current working directory: " + dir.getAbsolutePath()
+def file = new java.io.File(dir, "preview.png")
+
+// Set Header values as needed
+mockRequest.httpResponse.addHeader("Content-Type", "application/octet-stream")
+mockRequest.httpResponse.addHeader("Content-Disposition", "attachment;filename=preview.png")
+log.info "Reading file: " + file.getAbsolutePath()
+FileInputStream fis = null
+OutputStream os = null
+try {
+  fis = new FileInputStream(file);
+  os = httpResponse.getOutputStream()
+  IOUtils.copy(fis, os)
+} catch (Exception e){
+  log.info "Error: " + e.getMessage()
+}
+finally {
+	if (fis != null) {
+		try {
+  			fis.close()
+  		} catch (Exception e){
+  			//noop
+  		}
+	}
+	if (os != null) {
+  		try {
+  			os.close()
+  		} catch (Exception e){
+  			//noop
+  		}
+	}
+  	log.info "Completed"
+}</con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

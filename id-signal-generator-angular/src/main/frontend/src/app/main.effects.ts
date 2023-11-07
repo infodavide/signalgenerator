@@ -11,7 +11,7 @@ import {
   GENERATION_REQUEST_SUCCESS_ACTION,
   GENERATION_REQUEST_FAILURE_ACTION
 } from './main.actions';
-import { MainState, propertiesSelector, settingsSelector, userSelector } from './main.store';
+import { MainState, signalSettingsSelector, settingsSelector, userSelector } from './main.store';
 import { SignalService } from './service/signal.service';
 import { State, Store, props } from '@ngrx/store';
 

@@ -1,0 +1,24 @@
+<ng-container [formGroup]="form">
+    <mat-form-field>
+        <mat-label [attr.for]="input.name">{{input.label}}</mat-label>
+        <ng-container [ngSwitch]="input.type">
+            <input matInput *ngSwitchCase="'textbox'" [formControlName]="input.name" [id]="input.name"
+                [type]="input.type">
+            <input matInput *ngSwitchCase="'boolean'" [formControlName]="input.name" [id]="input.name"
+                [type]="input.type">
+            <input matInput *ngSwitchCase="'number'" [formControlName]="input.name" [id]="input.name"
+                [type]="input.type">
+            <input matInput *ngSwitchCase="'integer'" [formControlName]="input.name" [id]="input.name"
+                [type]="input.type">
+            <input matInput *ngSwitchCase="'double'" [formControlName]="input.name" [id]="input.name"
+                [type]="input.type">
+            <input matInput *ngSwitchCase="'string'" [formControlName]="input.name" [id]="input.name"
+                [type]="input.type">
+            <select [id]="input.name" matInput *ngSwitchCase="'select'" [formControlName]="input.name">
+                <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
+            </select>
+        </ng-container>
+        <mat-error *ngIf="!isValid">{{getErrorMessage()}}</mat-error>
+        <mat-hint><span *ngIf="input.description">{{input.description}}</span><span
+                *ngIf="!input.description">{{input.label}}</span></mat-hint>
+    </mat-form-field></ng-container>

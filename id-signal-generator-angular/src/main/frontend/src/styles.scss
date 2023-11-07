@@ -1,5 +1,21 @@
-html,body {
+html,
+body {
     min-height: 100vh;
     height: auto;
     margin: 0;
+}
+
+.mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: #ffffff;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+
+    &.snackbar-error {
+        --mat-snack-bar-button-color: #ffffff;
+        --mdc-snackbar-container-color: #f23a2f;
+    }
+
+    &.snackbar-info {
+        --mat-snack-bar-button-color: #000000;
+        --mdc-snackbar-container-color: #43a446;
+    }
 }

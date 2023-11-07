@@ -9,9 +9,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -27,8 +29,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatGridListModule,
     MatCardModule,
     MatListModule,
-    MatDatepickerModule, 
-    MatNativeDateModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSliderModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -42,8 +46,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatGridListModule,
     MatCardModule,
     MatListModule,
-    MatDatepickerModule, 
-    MatNativeDateModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSliderModule,
+    MatSnackBarModule,
   ]
 })
 export class MatCommonModule {

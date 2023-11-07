@@ -1,4 +1,5 @@
 import { createSelector } from "@ngrx/store";
+import { InputBase } from './dynamic-form';
 
 export interface UserData {
   username: string | null,
@@ -17,33 +18,33 @@ export interface StatusData {
   message: string | null
 }
 export interface MainState {
-  user: UserData,
-  settings: SettingsData,
-  properties: Map<string, object>,
-  status: StatusData
+  user: UserData | null,
+  settings: SettingsData | null,
+  signalSettings: InputBase[] | null,
+  status: StatusData | null
 };
 
 export interface SignalSettings {
   name?: string;
-  settings?: Map<string, object>;
+  inputs: InputBase[] | null;
 }
 
 export const selectUser = (state: { main: MainState }) => state.main.user;
 export const userSelector = createSelector(
-  selectUser, (d: UserData) => d
+  selectUser, (d: UserData| null) => d
 );
 export const selectSettings = (state: { main: MainState }) => state.main.settings;
 export const settingsSelector = createSelector(
   selectSettings,
-  (d: SettingsData) => d
+  (d: SettingsData| null) => d
 );
-export const selectProperties = (state: { main: MainState }) => state.main.properties;
-export const propertiesSelector = createSelector(
-  selectProperties,
-  (d: Map<string, object>) => d
+export const selectSignalSettings = (state: { main: MainState }) => state.main.signalSettings;
+export const signalSettingsSelector = createSelector(
+  selectSignalSettings,
+  (d: InputBase[] | null) => d
 );
 export const selectStatus = (state: { main: MainState }) => state.main.status;
 export const statusSelector = createSelector(
   selectStatus,
-  (d: StatusData) => d
+  (d: StatusData| null) => d
 );

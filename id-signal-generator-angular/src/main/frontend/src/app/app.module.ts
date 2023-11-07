@@ -13,16 +13,21 @@ import { MainEffects } from './main.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UserComponent } from './user.component';
 import { SettingsComponent } from './settings.component';
-import { PropertiesComponent } from './properties.component';
+import { SignalSettingsComponent } from './signal-settings.component';
 import { HomeComponent } from './home.component';
+import { NgOptimizedImage } from '@angular/common';
+import { DynamicFormComponent } from './dynamic-form.component';
+import { PreviewComponent } from './preview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DynamicFormComponent,
     UserComponent,
     SettingsComponent,
-    PropertiesComponent,
-    HomeComponent
+    SignalSettingsComponent,
+    HomeComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,7 @@ import { HomeComponent } from './home.component';
     MatCommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgOptimizedImage,
     StoreModule.forRoot({ main: MAIN_REDUCER } , { metaReducers: META_REDUCERS }),
     EffectsModule.forRoot([MainEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })

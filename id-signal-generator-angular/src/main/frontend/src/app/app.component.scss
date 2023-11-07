@@ -28,6 +28,8 @@ mat-toolbar {
 }
 
 .footer {
+  display: flex;
+  align-items: center;
   position: fixed;
   bottom: 0;
   width: 100%;

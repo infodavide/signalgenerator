@@ -24,7 +24,7 @@ export const initialState: MainState = {
     signal: null,
     linePattern: null
   },
-  properties: new Map<string, object>,
+  signalSettings: null,
   status: {
     message: null
   }
@@ -35,54 +35,31 @@ const HYDRATATION_STORAGE_KEY: string = 'mainState';
 
 export const MAIN_REDUCER = createReducer(
   initialState,
-  on(APPLY_USER_DATA_ACTION, (state, { username, password, email }) => {
+  on(APPLY_USER_DATA_ACTION, (state, { data }) => {
     return {
       ...state,
-      user: {
-        username: username,
-        password: password,
-        email: email
-      }
+      user: data
     };
   }),
-  on(APPLY_GENERIC_SETTINGS_ACTION, (state, { start, end, frequency, step, signal, linePattern }) => {
+  on(APPLY_GENERIC_SETTINGS_ACTION, (state, { data }) => {
     return {
       ...state,
-      settings: {
-        start: start,
-        end: end,
-        frequency: frequency,
-        step: step,
-        signal: signal,
-        linePattern: linePattern
-      }
+      settings: data
     };
   }),
-  on(APPLY_SIGNAL_SETTINGS_ACTION, (state, { properties }) => {
+  on(APPLY_SIGNAL_SETTINGS_ACTION, (state, { data }) => {
+    console.log(data);
     return {
       ...state,
-      properties: properties
-    };
+      signalSettings: data
+    }
   }),
   on(RESET_ACTION, (state) => {
     return {
-      user: {
-        username: null,
-        password: null,
-        email: null
-      },
-      settings: {
-        start: new Date(),
-        end: new Date(),
-        frequency: 1.0,
-        step: 500,
-        signal: null,
-        linePattern: null
-      },
-      properties: new Map<string, object>,
-      status: {
-        message: null
-      }
+      user: null,
+      settings:  null,
+      signalSettings: null,
+      status: null
     };
   }),
   on(GENERATION_REQUEST_ACTION, (state) => {
@@ -113,11 +90,13 @@ export function hydratationMetaReducer(reducer: ActionReducer<MainState>): Actio
     if (HYDRATATION_REDUCER_ENABLED) {
       if (action.type === INIT) {
         console.log('[HydratationMetaReducer] Reloading state from local storage with key:', HYDRATATION_STORAGE_KEY);
-        const value = localStorage.getItem(HYDRATATION_STORAGE_KEY);
+        const json = localStorage.getItem(HYDRATATION_STORAGE_KEY);
 
-        if (value) {
+        if (json) {
+          console.log('[HydratationMetaReducer] parsing state: ', json);
+          
           try {
-            return JSON.parse(value);
+            return JSON.parse(json);
           } catch {
             localStorage.removeItem(HYDRATATION_STORAGE_KEY);
           }
@@ -125,8 +104,9 @@ export function hydratationMetaReducer(reducer: ActionReducer<MainState>): Actio
       }
       
       const nextState = reducer(state, action);
-      localStorage.setItem(HYDRATATION_STORAGE_KEY, JSON.stringify(nextState));
-      console.log('[HydratationMetaReducer]  Saving state: ', nextState, ' to local storage with key:', HYDRATATION_STORAGE_KEY);
+      let json = JSON.stringify(nextState);
+      localStorage.setItem(HYDRATATION_STORAGE_KEY, json);
+      console.log('[HydratationMetaReducer] Saving state: ', json, ' to local storage with key:', HYDRATATION_STORAGE_KEY);
 
       if (action.type === RESET_ACTION.type) {
         localStorage.removeItem(HYDRATATION_STORAGE_KEY);

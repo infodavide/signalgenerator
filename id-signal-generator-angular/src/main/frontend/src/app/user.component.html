@@ -1,18 +1,24 @@
 <div class="container">
   <form [formGroup]="form">
+    <div>
+      <h1>Welcome</h1>
+      <h3>Now you have to fill a name and your email address to get notified.</h3>
+  </div>  
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input matInput placeholder="Name" formControlName="username" />
+      <mat-error *ngIf="form.controls['username'].invalid">{{getErrorMessage('username')}}</mat-error>
       <mat-hint>Your name</mat-hint>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" placeholder="user@domain.com" />
+      <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage('email')}}</mat-error>
       <mat-hint>Your email address</mat-hint>
     </mat-form-field>
     <div class="buttons-container">
       <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
-      <button mat-raised-button (click)="next()" [disabled]="!formValid" type="submit" color="primary">Next</button>
+      <button mat-raised-button (click)="submit()" [disabled]="!formValid" type="submit" color="primary">Next</button>
     </div>
   </form>
 </div>
